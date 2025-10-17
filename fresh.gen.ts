@@ -7,6 +7,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $api_movies from "./routes/api/movies.ts";
 import * as $api_movies_id_ from "./routes/api/movies/[id].ts";
+import * as $api_todos_index from "./routes/api/todos/index.ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $MovieForm from "./islands/MovieForm.tsx";
@@ -22,6 +23,7 @@ const manifest = {
     "./routes/api/joke.ts": $api_joke,
     "./routes/api/movies.ts": $api_movies,
     "./routes/api/movies/[id].ts": $api_movies_id_,
+    "./routes/api/todos/index.ts": $api_todos_index,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
   },
