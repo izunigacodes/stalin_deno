@@ -37,7 +37,7 @@ function Todos() {
     try {
       const response = await axiod.get("/api/todos");
       setGetTodos(response.data);
-      //console.log("response:..", response);
+      console.log("response:..", response);
     } catch (error) {
       throw new Error(error);
     }
