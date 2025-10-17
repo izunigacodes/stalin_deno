@@ -1,7 +1,7 @@
 import { Handlers, STATUS_CODE } from "$fresh/server.ts";
 import { db } from "../../../utils/dbConnections.ts";
 
-const TodosCollection = db.collection("clientes");
+//const TodosCollection = db.collection("clientes");
 
 export const handler: Handlers = {
   async POST(req, ctx) {
@@ -9,12 +9,12 @@ export const handler: Handlers = {
       //const { todo } = await req.json();
       const { title, genre, correo, whatsap } = await req.json();
 
-      await TodosCollection.insertOne({
+      /*await TodosCollection.insertOne({
         title: title,
         genre: genre,
         correo: correo,
         whatsap: whatsap,
-      });
+      });*/
       //console.log("title: ", title);
 
       return new Response(null, {
@@ -27,7 +27,7 @@ export const handler: Handlers = {
   },
   async GET(req, ctx) {
     try {
-      const todos = await TodosCollection.find().toArray();
+      //const todos = await TodosCollection.find().toArray();
 
       return new Response(JSON.stringify(todos), {
         status: STATUS_CODE.OK,
