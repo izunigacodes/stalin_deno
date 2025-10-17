@@ -11,6 +11,7 @@ import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $MovieForm from "./islands/MovieForm.tsx";
 import * as $MovieList from "./islands/MovieList.tsx";
+import * as $Todos from "./islands/Todos.tsx";
 import * as $clientes from "./islands/clientes.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -27,6 +28,7 @@ const manifest = {
   islands: {
     "./islands/MovieForm.tsx": $MovieForm,
     "./islands/MovieList.tsx": $MovieList,
+    "./islands/Todos.tsx": $Todos,
     "./islands/clientes.tsx": $clientes,
   },
   baseUrl: import.meta.url,

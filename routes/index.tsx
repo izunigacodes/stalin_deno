@@ -4,7 +4,7 @@ import { Handlers, PageProps, STATUS_CODE } from "$fresh/server.ts";
 import { Movie } from "../database.ts";
 import { db } from "../utils/dbConnections.ts";
 
-const TodosCollection = db.collection("mi");
+const TodosCollection = db.collection("empleados");
 
 interface Data {
   movies: Movie[];
@@ -15,10 +15,26 @@ export const handler: Handlers = {
     try {
       const { todo } = await req.json();
       await TodosCollection.insertOne({ todo: todo });
+
       return new Response(null, {
         status: STATUS_CODE.Created,
       });
     } catch (error) {
+      console.log("sucedio un error");
+      return new Response(error);
+    }
+  },
+  async GET(req, ctx) {
+    try {
+      const todos = await TodosCollection.find().toArray();
+
+      return new Response(JSON.stringify(todos), {
+        status: STATUS_CODE.OK,
+        statusText: "Retornar todos correstamente",
+      });
+    } catch (error) {
+      console.log("sucedio un error");
+      return new Response(error);
     }
   },
 };
@@ -55,7 +71,7 @@ export default function Home({ data }: PageProps<Data>) {
             height="68"
             alt="the Fresh logo: a sliced lemon dripping with juice"
           />
-          <MovieList initialMovies={data.movies} />
+          {/*<MovieList initialMovies={data.movies} /> */}
           {/*<script src="clientes.tsx"></script>*/}
         </div>
       </div>

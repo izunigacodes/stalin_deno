@@ -10,4 +10,8 @@ import { start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
 import config from "./fresh.config.ts";
 
+import { createMongoDBConnection } from "./utils/dbConnections.ts";
+
+await createMongoDBConnection();
+
 await start(manifest, config);
